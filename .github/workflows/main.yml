@@ -31,4 +31,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ github.repository }}/hello-docker:latest
+          tags: ghcr.io/${{ github.repository_owner | downcase }}/actionss/hello-docker:latest
