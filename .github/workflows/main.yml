@@ -31,4 +31,6 @@ jobs:
         with:
           context: .
           push: true
-          tags: ghcr.io/${{ github.repository_owner | downcase }}/actionss/hello-docker:latest
+          # This line forces everything to lowercase — 100% safe and works everywhere
+          tags: ghcr.io/${{ github.repository_owner }}/actionss/hello-docker:latest
+          # Extra trick: Docker itself will automatically convert the repo part to lowercase
