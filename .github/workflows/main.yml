@@ -26,11 +26,12 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Build and push Docker image
+      - name: Build and push
         uses: docker/build-push-action@v6
         with:
           context: .
           push: true
-          # This line forces everything to lowercase — 100% safe and works everywhere
-          tags: ghcr.io/${{ github.repository_owner }}/actionss/hello-docker:latest
-          # Extra trick: Docker itself will automatically convert the repo part to lowercase
+          # ← THIS LINE IS THE ONLY ONE THAT MATTERS NOW
+          tags: ghcr.io/jxpjxt/actionss/hello-docker:latest
+          labels: |
+            org.opencontainers.image.source=${{ github.event.repository.html_url }}
